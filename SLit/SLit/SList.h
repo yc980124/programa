@@ -13,8 +13,10 @@ typedef struct SListNode
 
 void SListPushBack(SListNode** pphead, SLTDateType x);
 void SListPopBack(SListNode** pphead);
-void SListPushFront();
-void SListPopFront();
-
+void SListPushFront(SListNode** pphead, SLTDateType x);
+void SListPopFront(SListNode** pphead);
+SListNode* SListFind(SListNode* phead, SLTDateType x);
+void SListInsertAfter(SListNode* pos, SLTDateType x);
+void SListEraseAfter(SListNode* pos);
 SListNode* BuySList(SLTDateType x);
 void SListPrint(SListNode* phead);

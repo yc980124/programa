@@ -11,9 +11,125 @@
 //输出：[1, 0, 2, 1]
 //解释：215 + 806 = 1021
 
+
+int* addToArrayForm(int* A, int ASize, int K, int* returnSize){
+
+	//先判断需要开辟空间的大小
+
+	int Ksize = 0;
+
+	int Knum = K;
+
+	while (Knum > 0)
+
+	{
+
+		Knum %= 10;
+
+		Ksize++;
+
+	}
+
+	int n = ASize>Ksize ? ASize : Ksize;
+
+	int* retArr = (int *)malloc(sizeof(int)*(n + 1));
+
+	//相加
+
+	int Ai = ASize - 1;    // 数组A最后一个数的下标
+
+
+
+	int nextnum = 0;     // 进位
+
+	int reti = 0;       //开辟数组的第一个数的下标
+
+	while (n-- > 0)
+
+	{
+
+		int a = 0;   // 存放A数组中的一个数
+
+		if (Ai >= 0)
+
+		{
+
+			a = A[Ai];
+
+			Ai--;
+
+		}
+
+		int ret = K % 10 + a + nextnum;
+
+		K /= 10;
+
+
+
+		if (ret > 9)
+
+		{
+
+			nextnum = 1;
+
+			ret -= 10;
+
+		}
+
+		else
+
+		{
+
+			nextnum = 0;
+
+		}
+
+		retArr[reti] = ret;
+
+		reti++;
+
+	}
+
+	if (nextnum == 1)
+
+	{
+
+		retArr[reti] = 1;
+
+		reti++;
+
+	}
+
+	int left = 0;
+
+	int right = reti - 1;
+
+	while (left < right)
+
+	{
+
+		int tmp = retArr[left];
+
+		retArr[left] = retArr[right];
+
+		retArr[right] = tmp;
+
+		left++;
+
+		right--;
+
+	}
+
+	*returnSize = reti;
+
+	return retArr;
+
+}
+
 /**
 * Note: The returned array must be malloced, assume caller calls free().
 */
+/*
 int* addToArrayForm(int* A, int Asize, int K, int* returnsize)
 {
 	if (A == NULL || K == 0)
@@ -42,4 +158,5 @@ int main()
 	addToArrayForm(A, size, K, retA);
 	return 0;
 }
+*/
 
