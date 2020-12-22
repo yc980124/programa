@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7E048DD5-17D2-444A-9FFE-C230C39E6141}</ProjectGuid>
+    <ProjectGuid>{A7577232-E423-474B-89DD-DE6E65A84974}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>bit_multiplication_table</RootNamespace>
+    <RootNamespace>test_12_21</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
