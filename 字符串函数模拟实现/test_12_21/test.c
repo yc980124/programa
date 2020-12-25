@@ -141,7 +141,7 @@ int main()
 
 
 
-
+/*
 char *my_strstr(const char *str1, const char *str2)
 {
 	assert(str1 && str2);                   //检查合法性
@@ -176,7 +176,7 @@ int main()
 	puts(str);
 	return 0;
 }
-
+*/
 
 
  
@@ -208,23 +208,24 @@ int main()
 
 
 
-/*
+
 // 字符串 移动函数
 void *my_memmove(void *dest, const void *src, size_t count)
 {
-	assert(dest != NULL && src != NULL);
-	char *str1 = (char *)dest;   //保护原字符串
-	const char *str2 = (const char *)src;
-	if (str1 > str2 && str1<str2 + count)  //出现重叠
+	assert(dest != NULL && src != NULL);      //检查合法性
+	char *str1 = (char *)dest;                //保护参数
+	char *str2 = (const char *)src;
+
+	if (str1 > str2 && str1<str2 + count)    //出现重叠
 	{
 		str2 = str2 + count - 1;
 		str1 = str1 + count - 1;
 		while (count-- > 0)
 		{
-			*str1-- = *str2--;   //从下一个开始算。如str=abcde，那么src=str+2=cde
+			*str1-- = *str2--;   //从下一个开始算。如str=abcde，若src=str+2，那么src = cde...
 		}
 	}
-	else
+	else                       //没有重叠的情况
 	while (count-- > 0)
 	{
 		*str1++ = *str2++;
@@ -237,11 +238,18 @@ int main()
 	char *str2 = "oooooo";
 	my_memmove(str1 + 5, str1 + 2, 5);   //从下一个开始算
 	//memmove(str1 + 5, str1 + 2, 5);        //复制是一个字母一个字母复制，不是一串一串的复制
-	printf("%s\n", str1);
+	puts(str1);
 
 	memcpy(str1 + 5, str1 + 2, 5);      //memmove 和 memcpy 的比较
-	printf("%s\n", str1);
+	puts(str1);
 
 	return 0;
 }
-*/
+
+//int main()
+//{
+//	char str[] = "memmove can be very useful......";
+//	memmove(str + 20, str + 15, 11);
+//	puts(str);
+//	return 0;
+//}
