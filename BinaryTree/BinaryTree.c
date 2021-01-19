@@ -68,6 +68,43 @@ void PostOrder(BTNode* root)
 //	TreeSize(root->_right, psize);
 //}
 
+// 二叉树销毁
+// 最好后序销毁
+void BinaryTreeDestory(BTNode** root)
+{
+	
+}
+
+// 层序遍历
+void BinaryTreeLevelOrder(BTNode* root)
+{
+	
+}
+// 判断二叉树是否是完全二叉树
+int BinaryTreeComplete(BTNode* root)
+{
+	
+}
+
+// 二叉树第k层节点个数
+// 当前树的第K层，可以转化为左右子树的k-1层
+int BinaryTreeLevelKSize(BTNode* root, int k)
+{
+	if (root == NULL)
+		return 0;
+
+	if (k = 1)
+		return 1;
+
+	return BinaryTreeLevelKSize(root->_left, k - 1) + BinaryTreeLevelKSize(root->_right, k - 1);
+}
+// 二叉树查找值为x的节点
+BTNode* BinaryTreeFind(BTNode* root, BTDataType x)
+{
+	if (root == NULL)
+		return NULL;
+}
+
 int TreeSize(BTNode* root)
 {
 	if (root == NULL)
